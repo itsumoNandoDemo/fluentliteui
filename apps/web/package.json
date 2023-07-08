@@ -27,11 +27,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/testing-library__jest-dom": "^5.14.5",
     "tsconfig": "*",
-    "typescript": "^4.5.4",
-    "@fluentliteui/button": "*",
-    "@fluentliteui/space": "*",
-    "@fluentliteui/table": "*",
-    "@fluentliteui/pagenav": "*"
+    "typescript": "^4.5.4"
   },
   "eslintConfig": {
     "extends": [

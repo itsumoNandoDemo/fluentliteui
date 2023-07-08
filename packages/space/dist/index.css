@@ -1,0 +1,20 @@
+/* src/style.css */
+.fluentliteui .space {
+  display: flex;
+  gap: 10px;
+}
+.fluentliteui .flex-column {
+  flex-direction: column;
+}
+.fluentliteui .flex-row {
+  flex-direction: row;
+}
+.fluentliteui .justify-end {
+  justify-content: end;
+}
+.fluentliteui .justify-start {
+  justify-content: start;
+}
+.fluentliteui .justify-center {
+  justify-content: center;
+}

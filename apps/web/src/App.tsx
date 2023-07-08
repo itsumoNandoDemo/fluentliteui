@@ -9,7 +9,7 @@ import { Table } from "@fluentliteui/table";
 import "@fluentliteui/table/dist/index.css";
 
 import { Pagenav } from "@fluentliteui/pagenav";
-import "@fluentliteui/Pagenav/dist/index.css";
+import "@fluentliteui/pagenav/dist/index.css";
 
 import { Loading } from "@fluentliteui/loading";
 import "@fluentliteui/loading/dist/index.css";

@@ -7,7 +7,7 @@ yarn add @fluentliteui/pagenav
 
 usage
 ```jsx
-import { pagenav } from "@fluentliteui/pagenav";
+import { Pagenav } from "@fluentliteui/pagenav";
 import "@fluentliteui/pagenav/dist/index.css";
 
 function App() {
