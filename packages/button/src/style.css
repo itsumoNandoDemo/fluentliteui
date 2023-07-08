@@ -1,0 +1,34 @@
+.fluentliteui button {
+    color: #000;
+    cursor: pointer;
+    height: 40px;
+    padding: 10px;
+}
+
+.default button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #000;
+}
+
+.primary button {
+    background: #2f6dbd;
+    border: 1px solid #2f6dbd;
+    color: #fff;
+}
+
+.success button {
+    background: #157347;
+    border: 1px solid #157347;
+    color: #fff;
+}
+
+.warning button {
+    background: #ffc720;
+    border: 1px solid #ffc720;
+}
+
+.info button{
+    background: #0dcaf0;
+    border: 1px solid #0dcaf0;
+}

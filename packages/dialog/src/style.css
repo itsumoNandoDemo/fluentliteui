@@ -1,0 +1,38 @@
+.fluentliteui.full-wapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fluentliteui .dialog-wapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    opacity: 0.8;
+}
+
+.fluentliteui .dialog {
+    background-color: #fff;
+    box-shadow: 0 0 10px 0 #ccc;
+    z-index: 99;
+    position: relative;
+    padding: 10px;
+}
+
+.fluentliteui .dialog .body {
+    text-align: left;
+}
+
+.fluentliteui .dialog .footer {
+    display: flex;
+    justify-content: end;
+}

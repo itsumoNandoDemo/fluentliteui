@@ -1,0 +1,44 @@
+.fluentliteui.popover {
+    position: relative;
+    display: inline-block;
+}
+
+.fluentliteui .popover-pop {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 30px;
+    box-shadow: 0px 0px 30px #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    visibility: hidden;
+}
+
+.fluentliteui .popover-hover {
+    cursor: pointer;
+}
+
+.fluentliteui .popover-content {
+    z-index: 1;
+    display: block;
+    pointer-events: none;
+    overflow: hidden;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.fluentliteui .popover-arrow {
+    width: 0;
+    height: 0;
+    border-top: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    transform: translate(0, 8px);
+}
+
+.popover:hover .popover-pop {
+    visibility: visible;
+}
