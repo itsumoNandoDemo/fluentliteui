@@ -1,6 +1,6 @@
 {
   "name": "@fluentliteui/popover",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "private": false,
   "license": "MIT",
   "sideEffects": false,
