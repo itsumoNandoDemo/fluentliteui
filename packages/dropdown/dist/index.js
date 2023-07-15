@@ -28,18 +28,18 @@ module.exports = __toCommonJS(src_exports);
 var import_react = require("react");
 var import_jsx_runtime = require("react/jsx-runtime");
 var Dropdown = (props) => {
-  const { titleWidth = 120, optionWidth = 320, title, value, options, onOptionChange, ...rest } = props;
-  const inputElement = (0, import_react.useRef)();
-  const [show, setShow] = (0, import_react.useState)(false);
+  const { disabled = false, label, value, options, onOptionChange, ...rest } = props;
+  const dropdown = (0, import_react.useRef)();
   const optionsDom = (0, import_react.useRef)();
+  const [showOptions, setShowOptions] = (0, import_react.useState)(false);
   const totalHeight = window.innerHeight || document.documentElement.clientHeight;
   const totalWidth = window.innerWidth || document.documentElement.clientWidth;
   (0, import_react.useEffect)(() => {
     var _a, _b, _c;
-    if (show) {
-      inputElement.current.focus();
+    if (showOptions) {
+      dropdown.current.focus();
       if (optionsDom.current) {
-        const { top, right, bottom, left } = (_c = (_b = (_a = optionsDom.current) == null ? void 0 : _a.getBoundingClientRect) == null ? void 0 : _b.call(_a)) != null ? _c : {
+        const { top, bottom } = (_c = (_b = (_a = optionsDom.current) == null ? void 0 : _a.getBoundingClientRect) == null ? void 0 : _b.call(_a)) != null ? _c : {
           top: 0,
           right: 0,
           bottom: 0,
@@ -51,62 +51,64 @@ var Dropdown = (props) => {
         }
       }
     }
-  }, [show]);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-    className: "wapper",
+  }, [showOptions]);
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
     ...rest,
-    children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-        className: "label",
-        style: { width: `${titleWidth}px` },
-        children: [
-          title,
-          " : "
-        ]
-      }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-        tabIndex: 0,
-        ref: inputElement,
-        onBlur: () => {
-          setShow(false);
-        },
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-            className: "value",
-            style: { width: `${optionWidth}px` },
-            onClick: () => {
-              setShow(!show);
-            },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-                className: "text",
-                style: { width: `${optionWidth}px` },
-                children: value
-              }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-                className: show ? "icon_rotate" : "icon"
+    children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+      className: "fluentliteui dropdown-wapper",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+          className: "label",
+          children: label
+        }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+          className: "dropdown",
+          tabIndex: 0,
+          ref: dropdown,
+          onBlur: () => {
+            setShowOptions(false);
+          },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+              ...{ disabled },
+              className: "value",
+              onClick: () => {
+                if (!disabled) {
+                  setShowOptions(!showOptions);
+                }
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+                  className: "text",
+                  children: value
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+                  className: showOptions ? "icon_rotate" : "icon"
+                }),
+                disabled && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+                  className: "mask"
+                })
+              ]
+            }),
+            showOptions && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+              ref: optionsDom,
+              className: "options",
+              children: options.map((item) => {
+                return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+                  title: item.title,
+                  className: item.value === value ? "option select" : "option",
+                  onClick: () => {
+                    onOptionChange(item.value);
+                    setShowOptions(false);
+                  },
+                  children: item.title
+                }, item.key);
               })
-            ]
-          }),
-          show && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-            ref: optionsDom,
-            className: "options",
-            style: { width: `${optionWidth + 2}px` },
-            children: options.map((item) => {
-              return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-                title: item.title,
-                className: item.value === value ? "option select" : "option",
-                onClick: () => {
-                  onOptionChange(item.value);
-                  setShow(false);
-                },
-                children: item.title
-              }, item.key);
             })
-          })
-        ]
-      })
-    ]
+          ]
+        })
+      ]
+    })
   });
 };
 // Annotate the CommonJS export names for ESM import in node:

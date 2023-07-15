@@ -4,12 +4,11 @@
   display: inline-block;
 }
 .fluentliteui .popover-pop {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  bottom: 30px;
   box-shadow: 0px 0px 30px #ccc;
   border-radius: 4px;
   background-color: #fff;

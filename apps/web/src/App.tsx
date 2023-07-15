@@ -9,7 +9,7 @@ import { Table } from "@fluentliteui/table";
 import "@fluentliteui/table/dist/index.css";
 
 import { Pagenav } from "@fluentliteui/pagenav";
-import "@fluentliteui/pagenav/dist/index.css";
+import "@fluentliteui/Pagenav/dist/index.css";
 
 import { Loading } from "@fluentliteui/loading";
 import "@fluentliteui/loading/dist/index.css";
@@ -53,8 +53,9 @@ function App() {
           setShowDialog(true);
         }}>open</Button>
         <Dialog style={{ width: "300px" }} show={showDialog} footer={<Button variant="primary" onClick={() => { setShowDialog(false); }}>确定</Button>} body={<>hhh</>} />
+        
         <p>Dropdown</p>
-        <Dropdown title={"name"} value={dropdownValue} options={[{
+        <Dropdown disabled label={"name"} value={dropdownValue} options={[{
           title: "Tom",
           key: "tom",
           value: "tom"
@@ -63,49 +64,66 @@ function App() {
           key: "jerry",
           value: "Jerry"
         }]} onOptionChange={setDropdownValue} />
-        <p>Popover</p>
-        <Popover pop={<div style={{ width: "100px" }}><h2>hello</h2><p>tom</p></div>}><Button>helllo</Button></Popover>
-        <p>Loading</p>
-        <Loading loading={true}>
-          <Table style={{ width: "500px" }} columns={[
-            {
-              title: <Button variant="info">Tom</Button>,
-              key: "name"
-            }, {
-              title: "age",
-              key: "age"
-            }
-          ]} dataSource={[
-            {
-              name: "tom",
-              age: <Button variant="info">19</Button>
-            }, {
-              name: "jerry",
-              age: 20
-            }
-          ]} />
-        </Loading>
-        <Button variant={"primary"} ><Loading size={20} loading={true} /></Button>
-        <p>Table</p>
-        <Table style={{ width: "100%" }} columns={[
-          {
-            title: <Button variant="info">Tom</Button>,
-            key: "name"
-          }, {
-            title: "age",
-            key: "age"
-          }
-        ]} dataSource={[
-          {
-            name: "tom",
-            age: <Button variant="info">19</Button>
-          }, {
-            name: "jerry",
-            age: 20
-          }
-        ]} />
-        <p>Pagenav</p>
-        <Pagenav max={30} active={pageNavAction} onPageChange={setPageNavAction} />
+        <p></p>
+        <Dropdown className="my-dropwown" label={"name"} value={dropdownValue} options={[{
+          title: "TomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTom",
+          key: "tom",
+          value: "TomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTomTom"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }, {
+          title: "Jerry",
+          key: "jerry",
+          value: "Jerry"
+        }]} onOptionChange={setDropdownValue} />
+        <p></p>
+        <Dropdown disabled label={"name"} value={""} options={[]} onOptionChange={() => { }} />
         <Pagenav style={{ width: "100%", justifyContent: "end" }} max={30} unactiveStyle={{ background: "rgb(240, 240, 240)", border: "solid 1px rgb(240, 240, 240)" }} active={pageNavAction} onPageChange={setPageNavAction} />
       </header>
     </div>

@@ -32,47 +32,49 @@ var Popover = (props) => {
   const { content, children, pop: popHTMLElement, ...rest } = props;
   const [show, setShow] = (0, import_react.useState)(false);
   const [x, setX] = (0, import_react.useState)(0);
-  const pop = (0, import_react.useRef)();
   const popwapper = (0, import_react.useRef)();
-  const { top, right, bottom, left } = (_c = (_b = (_a = pop.current) == null ? void 0 : _a.getBoundingClientRect) == null ? void 0 : _b.call(_a)) != null ? _c : {
+  const pop = (0, import_react.useRef)();
+  const { top, right, bottom, left } = (_c = (_b = (_a = popwapper.current) == null ? void 0 : _a.getBoundingClientRect) == null ? void 0 : _b.call(_a)) != null ? _c : {
     top: 0,
     right: 0,
     bottom: 0,
     left: 0
   };
-  const { left: a, right: b } = (_f = (_e = (_d = popwapper.current) == null ? void 0 : _d.getBoundingClientRect) == null ? void 0 : _e.call(_d)) != null ? _f : {
+  const { top: t, right: r, bottom: b, left: l } = (_f = (_e = (_d = pop.current) == null ? void 0 : _d.getBoundingClientRect) == null ? void 0 : _e.call(_d)) != null ? _f : {
     top: 0,
     right: 0,
     bottom: 0,
     left: 0
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
     ...rest,
-    className: "fluentliteui popover",
-    ref: popwapper,
-    children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-        className: "popover-hover",
-        onMouseOver: ({ clientX, clientY }) => {
-          setX(clientX);
-        },
-        children
-      }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-        className: "popover-pop",
-        ref: pop,
-        style: { left: `${(right - left) / 2 * -1 + (b - a) / 2}px` },
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-            className: "popover-content",
-            children: popHTMLElement
-          }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
-            className: "popover-arrow"
-          })
-        ]
-      })
-    ]
+    children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+      className: "fluentliteui popover",
+      ref: popwapper,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+          className: "popover-hover",
+          onMouseOver: ({ clientX, clientY }) => {
+            setX(clientX);
+          },
+          children
+        }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+          className: "popover-pop",
+          ref: pop,
+          style: { left: `${left + (right - left) / 2 - (r - l) / 2}px`, top: `${top - (b - t)}px` },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+              className: "popover-content",
+              children: popHTMLElement
+            }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+              className: "popover-arrow"
+            })
+          ]
+        })
+      ]
+    })
   });
 };
 // Annotate the CommonJS export names for ESM import in node:

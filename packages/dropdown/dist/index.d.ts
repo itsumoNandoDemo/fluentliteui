@@ -6,9 +6,8 @@ interface Option {
     value: string | number | boolean;
 }
 interface Props extends React.HTMLAttributes<HTMLElement> {
-    titleWidth?: number;
-    optionWidth?: number;
-    title: string;
+    disabled?: boolean;
+    label: string | React.ReactNode;
     value: string | number | boolean;
     options: Option[];
     onOptionChange: (value: string) => void;

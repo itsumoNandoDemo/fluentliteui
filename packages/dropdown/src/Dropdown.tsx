@@ -9,33 +9,30 @@ interface Option {
 }
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
-    titleWidth?: number;
-    optionWidth?: number;
-    title: string;
+    disabled?: boolean;
+    label: string | React.ReactNode;
     value: string | number | boolean;
     options: Option[];
     onOptionChange: (value: string) => void;
 }
 
 export const Dropdown = (props: Props) => {
-    const { titleWidth = 120, optionWidth = 320, title, value, options, onOptionChange, ...rest } = props;
+    const { disabled = false, label, value, options, onOptionChange, ...rest } = props;
 
-
-    const inputElement: any = useRef();
-
-    const [show, setShow] = useState<boolean>(false);
-
+    const dropdown: any = useRef();
     const optionsDom: any = useRef();
 
+    const [showOptions, setShowOptions] = useState<boolean>(false);
 
     const totalHeight = window.innerHeight || document.documentElement.clientHeight;
     const totalWidth = window.innerWidth || document.documentElement.clientWidth;
 
+
     useEffect(() => {
-        if (show) {
-            inputElement.current.focus();
+        if (showOptions) {
+            dropdown.current.focus();
             if (optionsDom.current) {
-                const { top, right, bottom, left } = optionsDom.current?.getBoundingClientRect?.() ?? {
+                const { top, bottom } = optionsDom.current?.getBoundingClientRect?.() ?? {
                     top: 0,
                     right: 0,
                     bottom: 0,
@@ -47,27 +44,32 @@ export const Dropdown = (props: Props) => {
                 }
             }
         }
-    }, [show])
+    }, [showOptions])
 
 
-    return <div className="wapper" {...rest}>
-        <div className="label" style={{ width: `${titleWidth}px` }}>{title} : </div>
-        <div tabIndex={0} ref={inputElement} onBlur={() => { setShow(false) }} >
-            <div className="value" style={{ width: `${optionWidth}px` }} onClick={() => {
-                setShow(!show);
-            }}><span className='text' style={{ width: `${optionWidth}px` }}>{value}</span><span className={show ? "icon_rotate" : "icon"}></span></div>
+    return <div {...rest}><div className="fluentliteui dropdown-wapper">
+        <div className="label">{label}</div>
+        <div className="dropdown" tabIndex={0} ref={dropdown} onBlur={() => { setShowOptions(false) }} >
+            <div {...{ disabled }} className="value" onClick={() => {
+                if (!disabled) {
+                    setShowOptions(!showOptions);
+                }
+            }}><div className='text'>{value}</div><div className={showOptions ? "icon_rotate" : "icon"}></div>
+                {disabled && <div className="mask"></div>}
+            </div>
             {
-                show && <div ref={optionsDom} className="options" style={{ width: `${optionWidth + 2}px` }}>
+                showOptions && <div ref={optionsDom} className="options">
                     {
                         options.map((item: any) => {
                             return <div key={item.key} title={item.title} className={item.value === value ? 'option select' : 'option'} onClick={() => {
                                 onOptionChange(item.value);
-                                setShow(false);
+                                setShowOptions(false);
                             }}>{item.title}</div>
                         })
                     }
                 </div>
             }
         </div>
+    </div>
     </div>
 };
